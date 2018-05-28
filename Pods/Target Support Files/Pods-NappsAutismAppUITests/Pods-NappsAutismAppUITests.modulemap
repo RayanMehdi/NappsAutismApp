@@ -1,0 +1,6 @@
+framework module Pods_NappsAutismAppUITests {
+  umbrella header "Pods-NappsAutismAppUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
