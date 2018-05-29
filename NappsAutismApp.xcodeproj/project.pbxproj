@@ -17,6 +17,15 @@
 		73044F0A20BC033300D256FB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73044F0820BC033300D256FB /* LaunchScreen.storyboard */; };
 		73044F1520BC033300D256FB /* NappsAutismAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73044F1420BC033300D256FB /* NappsAutismAppTests.swift */; };
 		73044F2020BC033300D256FB /* NappsAutismAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73044F1F20BC033300D256FB /* NappsAutismAppUITests.swift */; };
+		7337065B20BD339400071555 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7337065920BD339400071555 /* Interface.storyboard */; };
+		7337065D20BD339400071555 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7337065C20BD339400071555 /* Assets.xcassets */; };
+		7337066420BD339400071555 /* NappsAutismWatchApp Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 7337066320BD339400071555 /* NappsAutismWatchApp Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		7337066920BD339400071555 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7337066820BD339400071555 /* InterfaceController.swift */; };
+		7337066B20BD339400071555 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7337066A20BD339400071555 /* ExtensionDelegate.swift */; };
+		7337066D20BD339400071555 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7337066C20BD339400071555 /* NotificationController.swift */; };
+		7337066F20BD339400071555 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7337066E20BD339400071555 /* ComplicationController.swift */; };
+		7337067120BD339400071555 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7337067020BD339400071555 /* Assets.xcassets */; };
+		7337067620BD339400071555 /* NappsAutismWatchApp.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 7337065720BD339400071555 /* NappsAutismWatchApp.app */; };
 		CDCADE2A75F914195317B26A /* Pods_NappsAutismAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6110E78A579FA380B4A4BA2 /* Pods_NappsAutismAppTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -35,7 +44,46 @@
 			remoteGlobalIDString = 73044EF820BC033300D256FB;
 			remoteInfo = NappsAutismApp;
 		};
+		7337066520BD339400071555 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 73044EF120BC033300D256FB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7337066220BD339400071555;
+			remoteInfo = "NappsAutismWatchApp Extension";
+		};
+		7337067420BD339400071555 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 73044EF120BC033300D256FB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7337065620BD339400071555;
+			remoteInfo = NappsAutismWatchApp;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		7337067C20BD339500071555 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				7337066420BD339400071555 /* NappsAutismWatchApp Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7337067E20BD339500071555 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				7337067620BD339400071555 /* NappsAutismWatchApp.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		3619C4F67FCA8E4AD4951902 /* Pods-NappsAutismApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NappsAutismApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-NappsAutismApp/Pods-NappsAutismApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -56,6 +104,18 @@
 		73044F1B20BC033300D256FB /* NappsAutismAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NappsAutismAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		73044F1F20BC033300D256FB /* NappsAutismAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NappsAutismAppUITests.swift; sourceTree = "<group>"; };
 		73044F2120BC033300D256FB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7337065720BD339400071555 /* NappsAutismWatchApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NappsAutismWatchApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7337065A20BD339400071555 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		7337065C20BD339400071555 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7337065E20BD339400071555 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7337066320BD339400071555 /* NappsAutismWatchApp Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "NappsAutismWatchApp Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7337066820BD339400071555 /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		7337066A20BD339400071555 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		7337066C20BD339400071555 /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		7337066E20BD339400071555 /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
+		7337067020BD339400071555 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7337067220BD339400071555 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7337067320BD339400071555 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
 		8E144CD9E37109F4958EE837 /* Pods-NappsAutismApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NappsAutismApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NappsAutismApp/Pods-NappsAutismApp.debug.xcconfig"; sourceTree = "<group>"; };
 		91F2B55C1B49A472C41EB2BC /* Pods-NappsAutismAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NappsAutismAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NappsAutismAppTests/Pods-NappsAutismAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		9C68295F2185313A67765C09 /* Pods-NappsAutismAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NappsAutismAppUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NappsAutismAppUITests/Pods-NappsAutismAppUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -88,6 +148,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		7337066020BD339400071555 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -97,6 +164,8 @@
 				73044EFB20BC033300D256FB /* NappsAutismApp */,
 				73044F1320BC033300D256FB /* NappsAutismAppTests */,
 				73044F1E20BC033300D256FB /* NappsAutismAppUITests */,
+				7337065820BD339400071555 /* NappsAutismWatchApp */,
+				7337066720BD339400071555 /* NappsAutismWatchApp Extension */,
 				73044EFA20BC033300D256FB /* Products */,
 				D5E14BDAC3BCA60BE1C5D62B /* Pods */,
 				B73956B05779ECF330AE0B53 /* Frameworks */,
@@ -109,6 +178,8 @@
 				73044EF920BC033300D256FB /* NappsAutismApp.app */,
 				73044F1020BC033300D256FB /* NappsAutismAppTests.xctest */,
 				73044F1B20BC033300D256FB /* NappsAutismAppUITests.xctest */,
+				7337065720BD339400071555 /* NappsAutismWatchApp.app */,
+				7337066320BD339400071555 /* NappsAutismWatchApp Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -145,6 +216,30 @@
 				73044F2120BC033300D256FB /* Info.plist */,
 			);
 			path = NappsAutismAppUITests;
+			sourceTree = "<group>";
+		};
+		7337065820BD339400071555 /* NappsAutismWatchApp */ = {
+			isa = PBXGroup;
+			children = (
+				7337065920BD339400071555 /* Interface.storyboard */,
+				7337065C20BD339400071555 /* Assets.xcassets */,
+				7337065E20BD339400071555 /* Info.plist */,
+			);
+			path = NappsAutismWatchApp;
+			sourceTree = "<group>";
+		};
+		7337066720BD339400071555 /* NappsAutismWatchApp Extension */ = {
+			isa = PBXGroup;
+			children = (
+				7337066820BD339400071555 /* InterfaceController.swift */,
+				7337066A20BD339400071555 /* ExtensionDelegate.swift */,
+				7337066C20BD339400071555 /* NotificationController.swift */,
+				7337066E20BD339400071555 /* ComplicationController.swift */,
+				7337067020BD339400071555 /* Assets.xcassets */,
+				7337067220BD339400071555 /* Info.plist */,
+				7337067320BD339400071555 /* PushNotificationPayload.apns */,
+			);
+			path = "NappsAutismWatchApp Extension";
 			sourceTree = "<group>";
 		};
 		73D5165F20BC0F02006ABB7C /* View */ = {
@@ -212,10 +307,12 @@
 				73044EF620BC033300D256FB /* Frameworks */,
 				73044EF720BC033300D256FB /* Resources */,
 				61AE2671123732ED7E96FB0D /* [CP] Embed Pods Frameworks */,
+				7337067E20BD339500071555 /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				7337067520BD339400071555 /* PBXTargetDependency */,
 			);
 			name = NappsAutismApp;
 			productName = NappsAutismApp;
@@ -260,6 +357,40 @@
 			productReference = 73044F1B20BC033300D256FB /* NappsAutismAppUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		7337065620BD339400071555 /* NappsAutismWatchApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7337067D20BD339500071555 /* Build configuration list for PBXNativeTarget "NappsAutismWatchApp" */;
+			buildPhases = (
+				7337065520BD339400071555 /* Resources */,
+				7337067C20BD339500071555 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7337066620BD339400071555 /* PBXTargetDependency */,
+			);
+			name = NappsAutismWatchApp;
+			productName = NappsAutismWatchApp;
+			productReference = 7337065720BD339400071555 /* NappsAutismWatchApp.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		7337066220BD339400071555 /* NappsAutismWatchApp Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7337067B20BD339500071555 /* Build configuration list for PBXNativeTarget "NappsAutismWatchApp Extension" */;
+			buildPhases = (
+				7337065F20BD339400071555 /* Sources */,
+				7337066020BD339400071555 /* Frameworks */,
+				7337066120BD339400071555 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "NappsAutismWatchApp Extension";
+			productName = "NappsAutismWatchApp Extension";
+			productReference = 7337066320BD339400071555 /* NappsAutismWatchApp Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -284,6 +415,14 @@
 						ProvisioningStyle = Automatic;
 						TestTargetID = 73044EF820BC033300D256FB;
 					};
+					7337065620BD339400071555 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					7337066220BD339400071555 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
 				};
 			};
 			buildConfigurationList = 73044EF420BC033300D256FB /* Build configuration list for PBXProject "NappsAutismApp" */;
@@ -302,6 +441,8 @@
 				73044EF820BC033300D256FB /* NappsAutismApp */,
 				73044F0F20BC033300D256FB /* NappsAutismAppTests */,
 				73044F1A20BC033300D256FB /* NappsAutismAppUITests */,
+				7337065620BD339400071555 /* NappsAutismWatchApp */,
+				7337066220BD339400071555 /* NappsAutismWatchApp Extension */,
 			);
 		};
 /* End PBXProject section */
@@ -328,6 +469,23 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7337065520BD339400071555 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7337065D20BD339400071555 /* Assets.xcassets in Resources */,
+				7337065B20BD339400071555 /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7337066120BD339400071555 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7337067120BD339400071555 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -449,6 +607,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		7337065F20BD339400071555 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7337066D20BD339400071555 /* NotificationController.swift in Sources */,
+				7337066F20BD339400071555 /* ComplicationController.swift in Sources */,
+				7337066B20BD339400071555 /* ExtensionDelegate.swift in Sources */,
+				7337066920BD339400071555 /* InterfaceController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -461,6 +630,16 @@
 			isa = PBXTargetDependency;
 			target = 73044EF820BC033300D256FB /* NappsAutismApp */;
 			targetProxy = 73044F1C20BC033300D256FB /* PBXContainerItemProxy */;
+		};
+		7337066620BD339400071555 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7337066220BD339400071555 /* NappsAutismWatchApp Extension */;
+			targetProxy = 7337066520BD339400071555 /* PBXContainerItemProxy */;
+		};
+		7337067520BD339400071555 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7337065620BD339400071555 /* NappsAutismWatchApp */;
+			targetProxy = 7337067420BD339400071555 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -479,6 +658,14 @@
 				73044F0920BC033300D256FB /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		7337065920BD339400071555 /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7337065A20BD339400071555 /* Base */,
+			);
+			name = Interface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -689,6 +876,80 @@
 			};
 			name = Release;
 		};
+		7337067720BD339500071555 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = BEC5UZP6R2;
+				IBSC_MODULE = NappsAutismWatchApp_Extension;
+				INFOPLIST_FILE = NappsAutismWatchApp/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = Chaboude.NappsAutismApp.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 4.2;
+			};
+			name = Debug;
+		};
+		7337067820BD339500071555 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = BEC5UZP6R2;
+				IBSC_MODULE = NappsAutismWatchApp_Extension;
+				INFOPLIST_FILE = NappsAutismWatchApp/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = Chaboude.NappsAutismApp.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 4.2;
+			};
+			name = Release;
+		};
+		7337067920BD339500071555 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = BEC5UZP6R2;
+				INFOPLIST_FILE = "NappsAutismWatchApp Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Chaboude.NappsAutismApp.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 4.2;
+			};
+			name = Debug;
+		};
+		7337067A20BD339500071555 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = BEC5UZP6R2;
+				INFOPLIST_FILE = "NappsAutismWatchApp Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Chaboude.NappsAutismApp.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 4.2;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -724,6 +985,24 @@
 			buildConfigurations = (
 				73044F2B20BC033400D256FB /* Debug */,
 				73044F2C20BC033400D256FB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7337067B20BD339500071555 /* Build configuration list for PBXNativeTarget "NappsAutismWatchApp Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7337067920BD339500071555 /* Debug */,
+				7337067A20BD339500071555 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7337067D20BD339500071555 /* Build configuration list for PBXNativeTarget "NappsAutismWatchApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7337067720BD339500071555 /* Debug */,
+				7337067820BD339500071555 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
