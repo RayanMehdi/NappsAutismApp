@@ -35,7 +35,7 @@ class ViewController: UIViewController {
         Firestore.firestore().settings = settings
         db = Firestore.firestore()
         
-        addListener(collection: "Planning", document: "Autiste001")
+        addListener(collection: "Autiste", document: "zPe4zhDnFAUfllUaoIVl")
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -58,7 +58,7 @@ class ViewController: UIViewController {
                     print("Error fetching document: \(error!)")
                     return
                 }
-                self.onPlanningChanged(data: document.data()!["30/05/2018"] as! String)
+                self.onPlanningChanged(data: document.data()!["prenom"] as! String)
         }
         /*docRef.getDocument { (document, error) in
             if let document = document, document.exists {
