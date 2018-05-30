@@ -11,6 +11,9 @@ target 'NappsAutismApp' do
   pod 'Moya-ObjectMapper', '~> 2.5'
   pod 'Firebase/Core'
   pod 'Swinject', '~> 2.4'
+  pod 'Firebase/Storage'
+  pod 'Firebase/Firestore'
+  pod 'Firebase/Messaging'
   # Pods for NappsAutismApp
 
   target 'NappsAutismAppTests' do
