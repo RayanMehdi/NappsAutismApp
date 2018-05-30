@@ -9,6 +9,7 @@ target 'NappsAutismApp' do
   pod 'RxCocoa', '~> 4.1'
   pod 'Moya', '~> 10.0.0'
   pod 'Moya-ObjectMapper', '~> 2.5'
+  pod 'Firebase/Core'
   pod 'Swinject', '~> 2.4'
   # Pods for NappsAutismApp
 
