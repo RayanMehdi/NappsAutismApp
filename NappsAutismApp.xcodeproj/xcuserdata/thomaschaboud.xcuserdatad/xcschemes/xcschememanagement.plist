@@ -7,7 +7,7 @@
 		<key>NappsAutismApp.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>12</integer>
+			<integer>11</integer>
 		</dict>
 		<key>NappsAutismWatchApp (Complication).xcscheme</key>
 		<dict>
@@ -22,7 +22,7 @@
 		<key>NappsAutismWatchApp.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>11</integer>
+			<integer>12</integer>
 		</dict>
 	</dict>
 </dict>

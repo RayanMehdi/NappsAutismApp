@@ -10,6 +10,7 @@ target 'NappsAutismApp' do
   pod 'Moya', '~> 10.0.0'
   pod 'Moya-ObjectMapper', '~> 2.5'
   pod 'Swinject', '~> 2.4'
+  pod 'Firebase/Core'
   # Pods for NappsAutismApp
 
   target 'NappsAutismAppTests' do
