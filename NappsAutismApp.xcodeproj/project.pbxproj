@@ -783,12 +783,14 @@
 			baseConfigurationReference = 8E144CD9E37109F4958EE837 /* Pods-NappsAutismApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = QLL3DR6XP5;
+				DEVELOPMENT_TEAM = C546876H5V;
 				INFOPLIST_FILE = NappsAutismApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = NappsAutismApp;
+				PRODUCT_BUNDLE_IDENTIFIER = fr.napps.AutismApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -799,12 +801,14 @@
 			baseConfigurationReference = 3619C4F67FCA8E4AD4951902 /* Pods-NappsAutismApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = QLL3DR6XP5;
+				DEVELOPMENT_TEAM = C546876H5V;
 				INFOPLIST_FILE = NappsAutismApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = NappsAutismApp;
+				PRODUCT_BUNDLE_IDENTIFIER = fr.napps.AutismApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -817,6 +821,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = C546876H5V;
 				INFOPLIST_FILE = NappsAutismAppTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Chaboude.NappsAutismAppTests;
@@ -834,6 +839,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = C546876H5V;
 				INFOPLIST_FILE = NappsAutismAppTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Chaboude.NappsAutismAppTests;
@@ -850,6 +856,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = C546876H5V;
 				INFOPLIST_FILE = NappsAutismAppUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Chaboude.NappsAutismAppUITests;
@@ -866,6 +873,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = C546876H5V;
 				INFOPLIST_FILE = NappsAutismAppUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Chaboude.NappsAutismAppUITests;
@@ -882,10 +890,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = QLL3DR6XP5;
+				DEVELOPMENT_TEAM = C546876H5V;
 				IBSC_MODULE = NappsAutismWatchApp_Extension;
 				INFOPLIST_FILE = NappsAutismWatchApp/Info.plist;
-				PRODUCT_BUNDLE_IDENTIFIER = NappsAutismApp.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = fr.napps.AutismApp.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -901,10 +909,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = QLL3DR6XP5;
+				DEVELOPMENT_TEAM = C546876H5V;
 				IBSC_MODULE = NappsAutismWatchApp_Extension;
 				INFOPLIST_FILE = NappsAutismWatchApp/Info.plist;
-				PRODUCT_BUNDLE_IDENTIFIER = NappsAutismApp.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = fr.napps.AutismApp.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -919,10 +927,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = QLL3DR6XP5;
+				DEVELOPMENT_TEAM = C546876H5V;
 				INFOPLIST_FILE = "NappsAutismWatchApp Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = NappsAutismApp.watchkitapp.watchkitextension;
+				PRODUCT_BUNDLE_IDENTIFIER = fr.napps.AutismApp.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -937,10 +945,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = QLL3DR6XP5;
+				DEVELOPMENT_TEAM = C546876H5V;
 				INFOPLIST_FILE = "NappsAutismWatchApp Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = NappsAutismApp.watchkitapp.watchkitextension;
+				PRODUCT_BUNDLE_IDENTIFIER = fr.napps.AutismApp.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;

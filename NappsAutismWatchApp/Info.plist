@@ -26,7 +26,7 @@
 		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 	</array>
 	<key>WKCompanionAppBundleIdentifier</key>
-	<string>Chaboude.NappsAutismApp</string>
+	<string>fr.napps.AutismApp</string>
 	<key>WKWatchKitApp</key>
 	<true/>
 </dict>
