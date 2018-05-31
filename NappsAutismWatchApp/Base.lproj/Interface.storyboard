@@ -22,6 +22,9 @@
                             </connections>
                         </button>
                     </items>
+                    <connections>
+                        <outlet property="taskTitle" destination="K5A-JQ-EV2" id="jYA-uh-QqS"/>
+                    </connections>
                 </controller>
             </objects>
             <point key="canvasLocation" x="220" y="326"/>
