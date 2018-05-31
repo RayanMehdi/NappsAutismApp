@@ -17,6 +17,8 @@ class InterfaceController: WKInterfaceController {
     
     
     func showTask(data: String){
+        WKInterfaceDevice().play(.notification)
+        
         taskTitle.setText(data)
         self.watchSession?.sendMessage(["ReturnTask": "OK"], replyHandler: nil)
     }
