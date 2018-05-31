@@ -13,19 +13,11 @@ import WatchConnectivity
 class InterfaceController: WKInterfaceController {
     @IBOutlet var taskTitle: WKInterfaceLabel!
     
+    var watchSession : WCSession?
     
     
     func showTask(data: String){
         taskTitle.setText(data)
-    }
-
-    var watchSession: WCSession? {
-        didSet {
-            if let session = watchSession {
-                session.delegate = self
-                session.activate()
-            }
-        }
     }
     
     override func awake(withContext context: Any?) {
@@ -37,6 +29,12 @@ class InterfaceController: WKInterfaceController {
     override func willActivate() {
         // This method is called when watch view controller is about to be visible to user
         super.willActivate()
+        
+        if(WCSession.isSupported()){
+            watchSession = WCSession.default
+            watchSession!.delegate = self
+            watchSession!.activate()
+        }
     }
     
     override func didDeactivate() {

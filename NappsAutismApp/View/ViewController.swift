@@ -35,6 +35,12 @@ class ViewController: UIViewController {
         Firestore.firestore().settings = settings
         db = Firestore.firestore()
         
+        if(WCSession.isSupported()){
+            watchSession = WCSession.default
+            watchSession!.delegate = self
+            watchSession!.activate()
+        }
+        
         addListener(collection: "Autiste", document: "zPe4zhDnFAUfllUaoIVl")
         // Do any additional setup after loading the view, typically from a nib.
     }
@@ -48,6 +54,9 @@ class ViewController: UIViewController {
         //analyse planning
         //send to watch....etc
         self.TestLabel.text=data
+        //SAVE IN CORE DATA
+        
+        //POUR ENVOYER UN MESSAGE A LA MONTRE:
         self.watchSession?.sendMessage(["showTask": data], replyHandler: nil)
     }
 
