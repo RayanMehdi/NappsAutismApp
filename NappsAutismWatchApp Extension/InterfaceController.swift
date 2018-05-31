@@ -18,6 +18,7 @@ class InterfaceController: WKInterfaceController {
     
     func showTask(data: String){
         taskTitle.setText(data)
+        self.watchSession?.sendMessage(["ReturnTask": "OK"], replyHandler: nil)
     }
     
     override func awake(withContext context: Any?) {
