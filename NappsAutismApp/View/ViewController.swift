@@ -13,9 +13,6 @@ import WatchConnectivity
 
 class ViewController: UIViewController {
     @IBOutlet weak var TestLabel: UILabel!
-    
-    var db: Firestore!
-    
     var wcSession: WCSession?
     var wcSessionActivationCompletion : ((WCSession)->Void)?
     
@@ -30,11 +27,6 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let settings = FirestoreSettings()
-        Firestore.firestore().settings = settings
-        db = Firestore.firestore()
-        
         if(WCSession.isSupported()){
             watchSession = WCSession.default
             watchSession!.delegate = self
@@ -56,8 +48,8 @@ class ViewController: UIViewController {
         //send to watch....etc
         let autistId=String(data["autisteId"] as! Int)
         self.TestLabel.text=autistId //test
-        //SAVE IN CORE DATA
-        
+        //SAVE
+        DataManager.sharedInstance.saveTasks(tasksId: data["tasksId"] as! Array<DocumentReference>)
         //POUR ENVOYER UN MESSAGE A LA MONTRE:
         self.watchSession?.sendMessage(["showTask": autistId], replyHandler: nil)
     }
@@ -68,7 +60,7 @@ class ViewController: UIViewController {
 
     //AJOUT D'UN LISTENER SUR UNE COLLECTION FIREBASE
     func addListener(collection: String, document: String){
-        db.collection(collection).document(document)
+        DataManager.sharedInstance.db.collection(collection).document(document)
             .addSnapshotListener { documentSnapshot, error in
                 guard let document = documentSnapshot else {
                     print("Error fetching document: \(error!)")

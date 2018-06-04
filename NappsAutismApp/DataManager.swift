@@ -8,8 +8,12 @@
 
 import Foundation
 import CoreData
+import Firebase
+import FirebaseFirestore
 
 class DataManager{
+    
+    public var db: Firestore!
     
     static let sharedInstance = DataManager()
     
@@ -21,67 +25,81 @@ class DataManager{
         return documentDirectory.appendingPathComponent("tasks").appendingPathExtension("json")
     }
     
-    var context: NSManagedObjectContext{
-        return persistentContainer.viewContext
-    }
-    
+//    var context: NSManagedObjectContext{
+//        return persistentContainer.viewContext
+//    }
+//
     var cachedTasks = [Task]()
-    
+
     private init() {
-        loadData()
+        initFirebase()
+       // loadData()
     }
     
-    func delete(object: NSManagedObject){
-        context.delete(object)
-        saveData();
+    private func initFirebase(){
+    let settings = FirestoreSettings()
+    settings.areTimestampsInSnapshotsEnabled = true
+    Firestore.firestore().settings = settings
+    db = Firestore.firestore()
+    //db.settings = settings
     }
     
-    func saveData(){
-        saveContext()
-    }
+//    func delete(object: NSManagedObject){
+//        context.delete(object)
+//        saveData();
+//    }
     
-    func loadData(){
+//    func saveData(){
+//        saveContext()
+//    }
+    
+    func saveTasks(tasksId: Array<DocumentReference>){
+        var tasks = Array<Task>()
+        for taskId in tasksId {
+            print("CHEVRE \(taskId.path)")
+            var path = taskId.path.components(separatedBy: "/")
+            let docRef = db.collection(path[0]).document(path[1])
+            //let docRef = db.collection("Planning").document("S9qp9mdbY2bCSylmpa7Q")
+            docRef.getDocument { (document, error) in
+                if let document = document, document.exists {
+                    let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
+                    let task = Task(taskName: document.data()!["taskName"] as! String)
+                    tasks.append(task)
+                    print("Document data: \(dataDescription)")
+                } else {
+                    print("Document does not exist")
+                }
+            }
+            
 
-        let fetchRequest: NSFetchRequest<Task> = Task.fetchRequest()
 
-        do {
-            self.cachedTasks = try context.fetch(fetchRequest)
-        }catch{
-            debugPrint("Could not load the Tasks from CoreData")
+            
         }
+        save(tasks: tasks)
     }
+    
+//    func createTask(task: String)-> Task{
+//        var newTask : Task = Task(context: DataManager.sharedInstance.context)
+//        
+//        return newTask
+//    }
+//
+//    func loadData(){
+//
+//        let fetchRequest: NSFetchRequest<Task> = Task.fetchRequest()
+//
+//        do {
+//            self.cachedTasks = try context.fetch(fetchRequest)
+//            print("TACHE ACTUELLE : \(cachedTasks)")
+//        }catch{
+//            print("ERREUR, NO TASK")
+//            debugPrint("Could not load the Tasks from CoreData")
+//        }
+//    }
     
     func save(tasks: Array<Task>){
         self.cachedTasks = tasks
-        saveData()
     }
-    
-    // MARK: - Core Data stack
-    
-    var persistentContainer: NSPersistentContainer = {
-        
-        let container = NSPersistentContainer(name: "NappsAutismApp")
-        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
-            if let error = error as NSError? {
-                
-                fatalError("Unresolved error \(error), \(error.userInfo)")
-            }
-        })
-        return container
-    }()
-    
-    // MARK: - Core Data Saving support
-    
-    func saveContext () {
-        let context = persistentContainer.viewContext
-        if context.hasChanges {
-            do {
-                try context.save()
-            } catch {
-                let nserror = error as NSError
-                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
-            }
-        }
-    }
+
     
 }

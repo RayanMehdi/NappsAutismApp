@@ -27,6 +27,7 @@
 		7337067120BD339400071555 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7337067020BD339400071555 /* Assets.xcassets */; };
 		7337067620BD339400071555 /* NappsAutismWatchApp.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 7337065720BD339400071555 /* NappsAutismWatchApp.app */; };
 		B8293B5520BFEF4500888F80 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8293B5420BFEF4500888F80 /* DataManager.swift */; };
+		B878B0F920C1660B002F4000 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = B878B0F820C1660B002F4000 /* Task.swift */; };
 		B8A00A2F20BE872400F87F2D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B8A00A2E20BE872400F87F2D /* GoogleService-Info.plist */; };
 		CDCADE2A75F914195317B26A /* Pods_NappsAutismAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6110E78A579FA380B4A4BA2 /* Pods_NappsAutismAppTests.framework */; };
 /* End PBXBuildFile section */
@@ -122,6 +123,7 @@
 		91F2B55C1B49A472C41EB2BC /* Pods-NappsAutismAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NappsAutismAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NappsAutismAppTests/Pods-NappsAutismAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		9C68295F2185313A67765C09 /* Pods-NappsAutismAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NappsAutismAppUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NappsAutismAppUITests/Pods-NappsAutismAppUITests.release.xcconfig"; sourceTree = "<group>"; };
 		B8293B5420BFEF4500888F80 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DataManager.swift; path = NappsAutismApp/DataManager.swift; sourceTree = SOURCE_ROOT; };
+		B878B0F820C1660B002F4000 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = SOURCE_ROOT; };
 		B8A00A2E20BE872400F87F2D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		D6110E78A579FA380B4A4BA2 /* Pods_NappsAutismAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NappsAutismAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E321A701FD488248171A5699 /* Pods-NappsAutismAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NappsAutismAppUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NappsAutismAppUITests/Pods-NappsAutismAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -273,6 +275,7 @@
 			isa = PBXGroup;
 			children = (
 				B8293B5420BFEF4500888F80 /* DataManager.swift */,
+				B878B0F820C1660B002F4000 /* Task.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -622,6 +625,7 @@
 			files = (
 				73044EFF20BC033300D256FB /* ViewController.swift in Sources */,
 				B8293B5520BFEF4500888F80 /* DataManager.swift in Sources */,
+				B878B0F920C1660B002F4000 /* Task.swift in Sources */,
 				73044EFD20BC033300D256FB /* AppDelegate.swift in Sources */,
 				73044F0520BC033300D256FB /* NappsAutismApp.xcdatamodeld in Sources */,
 			);
