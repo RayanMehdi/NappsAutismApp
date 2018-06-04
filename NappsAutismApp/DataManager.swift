@@ -59,13 +59,12 @@ class DataManager{
             print("CHEVRE \(taskId.path)")
             var path = taskId.path.components(separatedBy: "/")
             let docRef = db.collection(path[0]).document(path[1])
-            //let docRef = db.collection("Planning").document("S9qp9mdbY2bCSylmpa7Q")
             docRef.getDocument { (document, error) in
                 if let document = document, document.exists {
                     let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
-                    let task = Task(taskName: document.data()!["taskName"] as! String)
-                    tasks.append(task)
-                    print("Document data: \(dataDescription)")
+                    //let task = Task(taskName: document.data()!["taskName"] as! String)
+                    tasks.append(Task(data: document.data()!, id: path[1]))
+                    //print("Document data: \(dataDescription)")
                 } else {
                     print("Document does not exist")
                 }
@@ -99,6 +98,10 @@ class DataManager{
     
     func save(tasks: Array<Task>){
         self.cachedTasks = tasks
+        print(cachedTasks.count)
+        if(cachedTasks.count > 1){
+            print(cachedTasks[0].taskName)
+        }
     }
 
     

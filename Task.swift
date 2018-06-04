@@ -7,16 +7,18 @@
 //
 
 import Foundation
+import Firebase
 
-class Task: Codable{
-    var date : Date?
+class Task{
+    var date : Timestamp?
     var frequency : String?
     var imgURL : String?
     var isChecked : Bool?
     var needANotif : Bool?
     var taskName : String?
+    var taskId : String?
     
-    init(date: Date?, frequency: String?, imgURL: String?, isChecked: Bool?, needANotif: Bool?, taskName: String? ) {
+    init(date: Timestamp?, frequency: String?, imgURL: String?, isChecked: Bool?, needANotif: Bool?, taskName: String? ) {
         self.date = date
         self.frequency = frequency
         self.imgURL = imgURL
@@ -24,14 +26,14 @@ class Task: Codable{
         self.needANotif = needANotif
         self.taskName = taskName
     }
-    init(data: [String: Any?]) {
-        self.date = data["Date"] as! Date
+    init(data: [String: Any?], id: String) {
+        self.date = data["date"] as! Timestamp
         self.frequency = data["frequency"] as! String
         self.imgURL = data["imgURL"] as! String
         self.isChecked = data["isChecked"] as! Bool
-        self.date = data["Date"] as! Date
-        self.date = data["Date"] as! Date
-        
+        self.needANotif = data["needANotif"] as! Bool
+        self.taskName = data["taskName"] as! String
+        self.taskId = id
     }
     init(taskName: String) {
         self.taskName = taskName
