@@ -18,11 +18,13 @@
                         <imageView height="92" alignment="center" verticalAlignment="center" id="hmC-lg-E0I"/>
                         <button width="34" height="26" alignment="center" verticalAlignment="center" title="Ok" id="STV-cJ-frS">
                             <connections>
+                                <action selector="checkTask" destination="AgC-eL-Hgc" id="U8N-G2-kcq"/>
                                 <segue destination="ZBU-S3-de4" kind="push" id="Ey5-VM-lhE"/>
                             </connections>
                         </button>
                     </items>
                     <connections>
+                        <outlet property="imgTask" destination="hmC-lg-E0I" id="q3Z-Pr-j3R"/>
                         <outlet property="taskTitle" destination="K5A-JQ-EV2" id="jYA-uh-QqS"/>
                     </connections>
                 </controller>

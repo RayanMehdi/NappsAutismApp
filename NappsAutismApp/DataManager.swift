@@ -69,10 +69,6 @@ class DataManager{
                     print("Document does not exist")
                 }
             }
-            
-
-
-            
         }
         save(tasks: tasks)
     }

@@ -13,6 +13,7 @@ import WatchConnectivity
 class InterfaceController: WKInterfaceController {
     @IBOutlet var taskTitle: WKInterfaceLabel!
     
+    @IBOutlet var imgTask: WKInterfaceImage!
     var watchSession : WCSession?
     
     
@@ -27,6 +28,10 @@ class InterfaceController: WKInterfaceController {
         // Configure interface objects here.
     }
     
+    @IBAction func checkTask() {
+        
+    }
+    
     override func willActivate() {
         // This method is called when watch view controller is about to be visible to user
         super.willActivate()
@@ -36,6 +41,7 @@ class InterfaceController: WKInterfaceController {
             watchSession!.delegate = self
             watchSession!.activate()
         }
+        imgTask.setImage(#imageLiteral(resourceName: "beer"))
     }
     
     override func didDeactivate() {

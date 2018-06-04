@@ -47,7 +47,8 @@ class ViewController: UIViewController {
         //analyse planning
         //send to watch....etc
         let autistId=String(data["autisteId"] as! Int)
-        self.TestLabel.text=autistId //test
+        self.TestLabel.text=autistId
+        //test
         //SAVE
         DataManager.sharedInstance.saveTasks(tasksId: data["tasksId"] as! Array<DocumentReference>)
         //POUR ENVOYER UN MESSAGE A LA MONTRE:
