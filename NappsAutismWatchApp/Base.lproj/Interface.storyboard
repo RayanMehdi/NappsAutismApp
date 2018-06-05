@@ -14,13 +14,13 @@
             <objects>
                 <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="NappsAutismWatchApp" customModuleProvider="target">
                     <items>
-                        <label width="136" height="22" alignment="center" verticalAlignment="center" text="TO DO" textAlignment="center" id="K5A-JQ-EV2"/>
                         <imageView height="92" alignment="center" verticalAlignment="center" contentMode="scaleAspectFit" id="hmC-lg-E0I"/>
-                        <button width="34" height="26" alignment="center" verticalAlignment="center" title="Ok" id="STV-cJ-frS">
+                        <button width="57" height="25" alignment="center" verticalAlignment="bottom" title="Ok" id="3gR-II-8aS">
                             <connections>
-                                <action selector="checkTask" destination="AgC-eL-Hgc" id="U8N-G2-kcq"/>
+                                <action selector="check" destination="AgC-eL-Hgc" id="vRw-rD-XdS"/>
                             </connections>
                         </button>
+                        <label width="136" height="22" alignment="center" text="TO DO" textAlignment="center" id="K5A-JQ-EV2"/>
                     </items>
                     <connections>
                         <outlet property="imgTask" destination="hmC-lg-E0I" id="q3Z-Pr-j3R"/>
@@ -28,7 +28,7 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="220" y="326"/>
+            <point key="canvasLocation" x="220" y="290"/>
         </scene>
         <!--Interface Controller-->
         <scene sceneID="n3A-mT-w9B">
