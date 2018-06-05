@@ -98,16 +98,82 @@ class DataManager{
     
     func save(tasks: Array<Task>){
         self.cachedTasks = tasks
-        createTimer()
+        //createTimer()
+        for i in cachedTasks{
+            let date = getFormattedDate(timestamp: (i.date?.dateValue())!)
+            let timer = Timer(fireAt: date, interval: 0, target: self, selector: #selector(sendTaskToWatch), userInfo: nil, repeats: false)
+            RunLoop.main.add(timer, forMode: RunLoopMode.commonModes)
+        }
         
+        
+    }
+    
+    @objc func sendTaskToWatch(){
+        print("OK !!!!!!!!!!!!") 
     }
 
     func createTimer(){
-        //getFormattedDate(timestamp: cachedTasks[0].date?.dateValue() as! NSDate)
+        var closerTask=Task(taskName: "tmp")
+        var minInterval=Double(100000000000)
+        var currentDate=Date().timeIntervalSince1970
+        for i in cachedTasks{
+            var Value=getFormattedDate(timestamp: i.date?.dateValue() as! Date).timeIntervalSince1970
+            if(Value-currentDate<minInterval){
+                closerTask=i
+                minInterval=Value-currentDate
+            }
+        }
+        print(closerTask.taskName)
     }
     
-    func getFormattedDate(timestamp:NSDate)->String{
-        let date=timestamp
+    func getFormattedDate(timestamp:Date)->Date{
+        //Current date
+        let date=Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeZone = NSTimeZone() as TimeZone
+        dateFormatter.locale = NSLocale.current
+        dateFormatter.dateFormat =  "yyyy-MM-dd'T'HH:mm"
+        dateFormatter.date(from: String(describing: date))
+        let strDate = dateFormatter.string(from: date as Date)
+        var pathDate = strDate.components(separatedBy: "T")
+        var year=pathDate[0].components(separatedBy: "-")[0]
+        var month=pathDate[0].components(separatedBy: "-")[1]
+        var day=pathDate[0].components(separatedBy: "-")[2]
+        
+        //Task date
+        let dateFormatter2 = DateFormatter()
+        dateFormatter2.timeZone = NSTimeZone() as TimeZone
+        dateFormatter2.locale = NSLocale.current
+        dateFormatter2.dateFormat =  "yyyy-MM-dd'T'HH:mm"
+        dateFormatter2.date(from: String(describing: timestamp))
+        let strDate2 = dateFormatter2.string(from: timestamp as Date)
+        var pathDate2 = strDate2.components(separatedBy: "T")
+        var hour=pathDate2[1].components(separatedBy: ":")[0]
+        var minutes=pathDate2[1].components(separatedBy: ":")[1]
+        
+        
+        var dateComponents = DateComponents()
+        dateComponents.year = Int(year)
+        dateComponents.month = Int(month)
+        dateComponents.day = Int(day)
+        dateFormatter.locale = NSLocale.current
+        dateComponents.timeZone = TimeZone(secondsFromGMT: 7200)
+        dateComponents.hour = Int(hour)
+        dateComponents.minute = Int(minutes)
+        let userCalendar = Calendar.current
+        let someDateTime = userCalendar.date(from: dateComponents)
+        
+        
+        
+        return someDateTime!
+        /*var formatter = DateFormatter()
+        formatter.timeZone=TimeZone(abbreviation: "UTC +2:00")*/
+        //var current=Calendar.current.date(bySettingHour: 18, minute: 00, second: 00, of: currentDate)
+        
+        //print(current)
+        
+        
+        /*let date=timestamp
         let dateFormatter = DateFormatter()
         dateFormatter.timeZone = NSTimeZone() as TimeZone
         dateFormatter.locale = NSLocale.current
@@ -127,8 +193,8 @@ class DataManager{
         var finalDate=strCurrentDate+"T"+pathDate[1]
         
         let dddaaattteee = dateFormatter.date(from: finalDate)
-        
-        return pathDate[1]
+        let current = Date(timeIntervalSince1970: <#T##TimeInterval#>)
+        return pathDate[1]*/
     }
     
 }
