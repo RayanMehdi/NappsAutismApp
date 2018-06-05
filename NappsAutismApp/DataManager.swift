@@ -55,22 +55,26 @@ class DataManager{
     
     func saveTasks(tasksId: Array<DocumentReference>){
         var tasks = Array<Task>()
+        var cpt=0
         for taskId in tasksId {
             print("CHEVRE \(taskId.path)")
             var path = taskId.path.components(separatedBy: "/")
             let docRef = db.collection(path[0]).document(path[1])
             docRef.getDocument { (document, error) in
                 if let document = document, document.exists {
-                    let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
+                    _ = document.data().map(String.init(describing:)) ?? "nil"
                     //let task = Task(taskName: document.data()!["taskName"] as! String)
                     tasks.append(Task(data: document.data()!, id: path[1]))
+                    cpt = cpt+1
+                    if(cpt == tasksId.count){
+                        self.save(tasks: tasks)
+                    }
                     //print("Document data: \(dataDescription)")
                 } else {
                     print("Document does not exist")
                 }
             }
         }
-        save(tasks: tasks)
     }
     
 //    func createTask(task: String)-> Task{
@@ -94,11 +98,37 @@ class DataManager{
     
     func save(tasks: Array<Task>){
         self.cachedTasks = tasks
-        print(cachedTasks.count)
-        if(cachedTasks.count > 1){
-            print(cachedTasks[0].taskName)
-        }
+        createTimer()
+        
     }
 
+    func createTimer(){
+        //getFormattedDate(timestamp: cachedTasks[0].date?.dateValue() as! NSDate)
+    }
+    
+    func getFormattedDate(timestamp:NSDate)->String{
+        let date=timestamp
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeZone = NSTimeZone() as TimeZone
+        dateFormatter.locale = NSLocale.current
+        dateFormatter.dateFormat =  "yyyy-MM-dd'T'HH:mm"
+        dateFormatter.date(from: String(describing: date))
+        let strDate = dateFormatter.string(from: date as Date)
+        var pathDate = strDate.components(separatedBy: "T")
+        var hour=pathDate[1].components(separatedBy: ":")[0]
+        var minutes=pathDate[1].components(separatedBy: ":")[1]
+        
+        var currentDate = Date()
+        let formatter=DateFormatter()
+        formatter.dateFormat =  "yyyy-MM-dd"
+        formatter.date(from: String(describing: currentDate))
+        let strCurrentDate = formatter.string(from: currentDate as Date)
+        
+        var finalDate=strCurrentDate+"T"+pathDate[1]
+        
+        let dddaaattteee = dateFormatter.date(from: finalDate)
+        
+        return pathDate[1]
+    }
     
 }
