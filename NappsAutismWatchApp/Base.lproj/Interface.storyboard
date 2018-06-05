@@ -19,7 +19,6 @@
                         <button width="34" height="26" alignment="center" verticalAlignment="center" title="Ok" id="STV-cJ-frS">
                             <connections>
                                 <action selector="checkTask" destination="AgC-eL-Hgc" id="U8N-G2-kcq"/>
-                                <segue destination="ZBU-S3-de4" kind="push" id="Ey5-VM-lhE"/>
                             </connections>
                         </button>
                     </items>
