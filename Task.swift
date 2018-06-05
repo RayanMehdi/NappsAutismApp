@@ -26,6 +26,12 @@ class Task{
         self.needANotif = needANotif
         self.taskName = taskName
     }
+    
+    init(taskId: String, taskName: String,imgURL: String ) {
+        self.imgURL = imgURL
+        self.taskName = taskName
+        self.taskId = taskId
+    }
     init(data: [String: Any?], id: String) {
         self.date = data["date"] as! Timestamp
         self.frequency = data["frequency"] as! String

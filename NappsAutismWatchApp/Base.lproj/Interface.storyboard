@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="14109" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="14113" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
     <device id="watch38" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="watchOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="14031"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="14033"/>
     </dependencies>
     <scenes>
         <!--Interface Controller-->
@@ -15,7 +15,7 @@
                 <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="NappsAutismWatchApp" customModuleProvider="target">
                     <items>
                         <label width="136" height="22" alignment="center" verticalAlignment="center" text="TO DO" textAlignment="center" id="K5A-JQ-EV2"/>
-                        <imageView height="92" alignment="center" verticalAlignment="center" id="hmC-lg-E0I"/>
+                        <imageView height="92" alignment="center" verticalAlignment="center" contentMode="scaleAspectFit" id="hmC-lg-E0I"/>
                         <button width="34" height="26" alignment="center" verticalAlignment="center" title="Ok" id="STV-cJ-frS">
                             <connections>
                                 <action selector="checkTask" destination="AgC-eL-Hgc" id="U8N-G2-kcq"/>

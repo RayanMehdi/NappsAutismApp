@@ -14,11 +14,12 @@ class InterfaceController: WKInterfaceController {
     @IBOutlet var taskTitle: WKInterfaceLabel!
     
     @IBOutlet var imgTask: WKInterfaceImage!
+    var task : [String: String] = ["test": "Je suis un test"]
     var watchSession : WCSession?
     
     
-    func showTask(data: String){
-        taskTitle.setText(data)
+    func showTask(data: [String: String]){
+        taskTitle.setText(data["name"])
         self.watchSession?.sendMessage(["ReturnTask": "OK"], replyHandler: nil)
     }
     
@@ -42,6 +43,7 @@ class InterfaceController: WKInterfaceController {
             watchSession!.activate()
         }
         imgTask.setImage(#imageLiteral(resourceName: "beer"))
+        taskTitle.setText("JE SUIS UNE ABEILLEUH")
     }
     
     override func didDeactivate() {
@@ -64,7 +66,7 @@ extension InterfaceController: WCSessionDelegate {
     
     func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
         print("didReceiveMessage")
-        if let data = message["showTask"] as? String {
+        if let data = message["showTask"] as? [String: String] {
             self.showTask(data: data)
         }
     }

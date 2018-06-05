@@ -44,15 +44,13 @@ class ViewController: UIViewController {
     
     //FONCTION APPELÉE LORS D'UN CHANGEMENT DANS FIREBASE
     func onPlanningChanged(data: [String : Any]){
-        //analyse planning
-        //send to watch....etc
         let autistId=String(data["autisteId"] as! Int)
         self.TestLabel.text=autistId
-        //test
-        //SAVE
-        DataManager.sharedInstance.saveTasks(tasksId: data["tasksId"] as! Array<DocumentReference>)
+        //DataManager.sharedInstance.saveTasks(tasksId: data["tasksId"] as! Array<DocumentReference>)
         //POUR ENVOYER UN MESSAGE A LA MONTRE:
-        self.watchSession?.sendMessage(["showTask": autistId], replyHandler: nil)
+        var taskTest = Task(taskId: "test", taskName: "JE SUIS MI ANE MI OURSE CONTEMPORAIN", imgURL: "sleep")
+        var test = ["id": taskTest.taskId, "name" : taskTest.taskName, "img": taskTest.imgURL]
+        self.watchSession?.sendMessage(["showTask": test], replyHandler: nil)
     }
     
     func returnFromWatch(){
