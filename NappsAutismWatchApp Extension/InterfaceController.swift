@@ -20,7 +20,8 @@ class InterfaceController: WKInterfaceController {
     
     func showTask(data: [String: String]){
         taskTitle.setText(data["name"])
-        self.watchSession?.sendMessage(["ReturnTask": "OK"], replyHandler: nil)
+        imgTask.setImage(UIImage(named: data["image"]!))
+//        self.watchSession?.sendMessage(["ReturnTask": "OK"], replyHandler: nil)
     }
     
     override func awake(withContext context: Any?) {
@@ -30,7 +31,8 @@ class InterfaceController: WKInterfaceController {
     }
     
     @IBAction func checkTask() {
-        
+        self.watchSession?.sendMessage(["ReturnTask": "OK"], replyHandler: nil)
+        self.dismiss()
     }
     
     override func willActivate() {
@@ -42,8 +44,9 @@ class InterfaceController: WKInterfaceController {
             watchSession!.delegate = self
             watchSession!.activate()
         }
-        imgTask.setImage(#imageLiteral(resourceName: "beer"))
-        taskTitle.setText("JE SUIS UNE ABEILLEUH")
+        imgTask.setImage(UIImage(named: "eat"))
+        //imgTask.setImage(#imageLiteral(resourceName: "beer"))
+        taskTitle.setText("JE SUIS UN CASTOR")
     }
     
     override func didDeactivate() {

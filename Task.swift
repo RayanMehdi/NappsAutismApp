@@ -45,7 +45,9 @@ class Task{
         self.taskName = taskName
     }
     
-    
+    func getData()-> [String: String] {
+        return ["id": self.taskId! ,"name": self.taskName! , "image": self.imgURL!]
+    }
 //    required init?(_ map: Map) {
 //        var ctx = NSManagedObjectContext.MR_defaultContext()
 //        var entity = NSEntityDescription.entityForName("Task", inManagedObjectContext: ctx)
