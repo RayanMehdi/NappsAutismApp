@@ -44,24 +44,21 @@ class ViewController: UIViewController {
     
     //FONCTION APPELÉE LORS D'UN CHANGEMENT DANS FIREBASE
     func onPlanningChanged(data: [String : Any]){
-<<<<<<< HEAD
         DataManager.sharedInstance.saveTasks(tasksId: data["tasksId"] as! Array<DocumentReference>)
-//        //POUR ENVOYER UN MESSAGE A LA MONTRE:
-//        var taskTest = Task(taskId: "test", taskName: "JE SUIS MI ANE MI OURSE CONTEMPORAIN", imgURL: "sleep")
-        //var test = ["id": taskTest.taskId, "name" : taskTest.taskName, "img": taskTest.imgURL]
-        //self.watchSession?.sendMessage(["showTask": test], replyHandler: nil)
-=======
-        let autistId=String(data["autisteId"] as! Int)
-        self.TestLabel.text=autistId
-        //DataManager.sharedInstance.saveTasks(tasksId: data["tasksId"] as! Array<DocumentReference>)
+        //let autistId=String(data["autisteId"] as! Int)
+       // self.TestLabel.text=autistId
         //POUR ENVOYER UN MESSAGE A LA MONTRE:
-        var taskTest = Task(taskId: "test", taskName: "CHEEEVRE", imgURL: "work")
-        sendTasktoWatch(task: taskTest)
+        if(DataManager.sharedInstance.cachedTasks.count > 1){
+            sendTasktoWatch(task: DataManager.sharedInstance.cachedTasks[0])
+        }else{
+            var taskTest = Task(taskId: "test", taskName: "CHEEEVRE", imgURL: "work")
+            sendTasktoWatch(task: taskTest)
+        }
+        
     }
     
     func sendTasktoWatch(task: Task){
         self.watchSession?.sendMessage(["showTask": task.getData()], replyHandler: nil)
->>>>>>> TestFirebase
     }
     
     func returnFromWatch(){
