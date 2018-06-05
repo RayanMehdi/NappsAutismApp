@@ -28,6 +28,9 @@ class InterfaceController: WKInterfaceController {
         super.awake(withContext: context)
         watchSession = WCSession.default
         // Configure interface objects here.
+        imgTask.setImage(UIImage(named: "eat"))
+        //imgTask.setImage(#imageLiteral(resourceName: "beer"))
+        taskTitle.setText("JE SUIS UN CASTOR")
     }
     
     @IBAction func checkTask() {
@@ -44,9 +47,7 @@ class InterfaceController: WKInterfaceController {
             watchSession!.delegate = self
             watchSession!.activate()
         }
-        imgTask.setImage(UIImage(named: "eat"))
-        //imgTask.setImage(#imageLiteral(resourceName: "beer"))
-        taskTitle.setText("JE SUIS UN CASTOR")
+
     }
     
     override func didDeactivate() {

@@ -29,7 +29,7 @@ class DataManager{
 //        return persistentContainer.viewContext
 //    }
 //
-    var cachedTasks = [Task]()
+    public var cachedTasks = [Task]()
 
     private init() {
         initFirebase()
