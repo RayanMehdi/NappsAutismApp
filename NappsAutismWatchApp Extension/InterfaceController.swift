@@ -12,15 +12,18 @@ import WatchConnectivity
 
 class InterfaceController: WKInterfaceController {
     @IBOutlet var taskTitle: WKInterfaceLabel!
-    
     @IBOutlet var imgTask: WKInterfaceImage!
     var task : [String: String] = ["test": "Je suis un test"]
     var watchSession : WCSession?
-    
+    var isHidden = false
+    var currentTaskId: String = ""
     
     func showTask(data: [String: String]){
         taskTitle.setText(data["name"])
         imgTask.setImage(UIImage(named: data["image"]!))
+        currentTaskId = data["id"]!
+        imgTask.setHidden(false)
+        isHidden = false
 //        self.watchSession?.sendMessage(["ReturnTask": "OK"], replyHandler: nil)
     }
     
@@ -33,10 +36,17 @@ class InterfaceController: WKInterfaceController {
         taskTitle.setText("JE SUIS UN CASTOR")
     }
     
-    @IBAction func checkTask() {
-        self.watchSession?.sendMessage(["ReturnTask": "OK"], replyHandler: nil)
-        self.dismiss()
+    func checkTask(){
+        taskTitle.setText("No notif")
+        imgTask.setHidden(true)
+        if(!isHidden){
+            self.watchSession?.sendMessage(["ReturnTask": "OK"], replyHandler: nil)
+            isHidden = true
+            self.dismiss()
+        }
+
     }
+
     
     override func willActivate() {
         // This method is called when watch view controller is about to be visible to user
@@ -48,13 +58,17 @@ class InterfaceController: WKInterfaceController {
             watchSession!.activate()
         }
 
-    }
+}
     
     override func didDeactivate() {
         // This method is called when watch view controller is no longer visible
         super.didDeactivate()
     }
 
+    @IBAction func check(){
+        checkTask()
+    }
+    
 }
 
 extension InterfaceController: WCSessionDelegate {
