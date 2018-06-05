@@ -31,7 +31,7 @@ class ViewController: UIViewController {
             watchSession = WCSession.default
             watchSession!.delegate = self
             watchSession!.activate()
-        }
+        }   
         
         addListener(collection: "Planning", document: "S9qp9mdbY2bCSylmpa7Q") //ajout du listener
         // Do any additional setup after loading the view, typically from a nib.
