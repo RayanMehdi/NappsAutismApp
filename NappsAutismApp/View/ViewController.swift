@@ -19,27 +19,15 @@ class ViewController: UIViewController {
         WatchManager.sharedInstance.delegate = self
         DataManager.sharedInstance.delegate = self
         addListener(collection: "Planning", document: "S9qp9mdbY2bCSylmpa7Q") //ajout du listener
-        // Do any additional setup after loading the view, typically from a nib.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     //FONCTION APPELÉE LORS D'UN CHANGEMENT DANS FIREBASE
     func onPlanningChanged(data: [String : Any]){
         DataManager.sharedInstance.saveTasks(tasksId: data["tasksId"] as! Array<DocumentReference>)
-        //let autistId=String(data["autisteId"] as! Int)
-       // self.TestLabel.text=autistId
-        //POUR ENVOYER UN MESSAGE A LA MONTRE:
-//        if(DataManager.sharedInstance.cachedTasks.count > 1){
-//            WatchManager.sharedInstance.sendTasktoWatch(task: DataManager.sharedInstance.cachedTasks[0])
-//        }else{
-//            var taskTest = Task(taskId: "test", taskName: "CHEEEVRE", imgURL: "work")
-//            WatchManager.sharedInstance.sendTasktoWatch(task: taskTest)
-//        }
-        
     }
     
     
@@ -54,17 +42,6 @@ class ViewController: UIViewController {
                 }
                 self.onPlanningChanged(data: (document.data() )!)
         }
-        
-        //RECUP UN DOCUMENT SANS AJOUTER DE LISTENER:
-        /*docRef.getDocument { (document, error) in
-            if let document = document, document.exists {
-                let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
-                print("Document data: \(dataDescription)")
-                self.TestLabel.text="Document data: \(dataDescription)"
-            } else {
-                print("Document does not exist")
-            }
-        }*/
     }
 }
 
