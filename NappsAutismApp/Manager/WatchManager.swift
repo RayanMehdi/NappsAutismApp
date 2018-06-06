@@ -39,6 +39,7 @@ class WatchManager : NSObject{
     }
     
     func returnFromWatch(){
+        DataManager.sharedInstance.searchCloserTask()
         //self.TestLabel.text?.append("\nRECU PAR LA MONTRE")
     }
 }

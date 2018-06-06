@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import CoreData
 import Firebase
 import FirebaseFirestore
 
@@ -99,7 +98,10 @@ class DataManager{
     
     func save(tasks: Array<Task>){
         self.cachedTasks = tasks
-        
+        searchCloserTask()
+    }
+    
+    func searchCloserTask(){
         var currentDate=Date().timeIntervalSince1970
         
         var minTimestamp=getFormattedDate(timestamp: (cachedTasks[0].date?.dateValue())!).timeIntervalSince1970
@@ -116,13 +118,12 @@ class DataManager{
         print("Next task to schedule: "+nextTask.taskName!)
         
         let date = getFormattedDate(timestamp: (nextTask.date?.dateValue())!)
-         let timer = Timer(fireAt: date, interval: 0, target: self, selector: #selector(sendTaskToWatch), userInfo: nil, repeats: false)
-         RunLoop.main.add(timer, forMode: RunLoopMode.commonModes)
+        let timer = Timer(fireAt: date, interval: 0, target: self, selector: #selector(sendTaskToWatch), userInfo: nil, repeats: false)
+        RunLoop.main.add(timer, forMode: RunLoopMode.commonModes)
     }
     
     @objc func sendTaskToWatch(){
-        print("OK !!!!!!!!!!!!"+nextTask.taskName!)
-        
+        WatchManager.sharedInstance.sendTasktoWatch(task: nextTask)
     }
 
     func createTimer(){
