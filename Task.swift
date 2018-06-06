@@ -45,6 +45,10 @@ class Task{
         self.taskName = taskName
     }
     
+    func getString()-> String{
+        var textToReturn = "Name : " + taskName!
+        return textToReturn
+    }
     func getData()-> [String: String] {
         return ["id": self.taskId! ,"name": self.taskName! , "image": self.imgURL!]
     }

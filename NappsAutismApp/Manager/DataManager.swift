@@ -16,6 +16,7 @@ class DataManager{
     
     var nextTask=Task(taskName: "ERREUR")
     static let sharedInstance = DataManager()
+    var delegate : DataManagerDelegate?
     
     var documentDirectory: URL {
         return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
@@ -98,6 +99,7 @@ class DataManager{
     
     func save(tasks: Array<Task>){
         self.cachedTasks = tasks
+        delegate?.logsCachedTasks(tasks: cachedTasks)
         searchCloserTask()
     }
     
@@ -211,4 +213,8 @@ class DataManager{
         return pathDate[1]*/
     }
     
+}
+
+protocol DataManagerDelegate : class {
+    func logsCachedTasks(tasks : Array<Task>)
 }

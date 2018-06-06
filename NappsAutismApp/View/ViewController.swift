@@ -12,13 +12,12 @@ import FirebaseFirestore
 
 
 class ViewController: UIViewController {
-    @IBOutlet weak var TestLabel: UILabel!
-    
+    @IBOutlet weak var logTextView: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        WatchManager.sharedInstance
-        
+        WatchManager.sharedInstance.delegate = self
+        DataManager.sharedInstance.delegate = self
         addListener(collection: "Planning", document: "S9qp9mdbY2bCSylmpa7Q") //ajout du listener
         // Do any additional setup after loading the view, typically from a nib.
     }
@@ -34,12 +33,12 @@ class ViewController: UIViewController {
         //let autistId=String(data["autisteId"] as! Int)
        // self.TestLabel.text=autistId
         //POUR ENVOYER UN MESSAGE A LA MONTRE:
-        if(DataManager.sharedInstance.cachedTasks.count > 1){
-            WatchManager.sharedInstance.sendTasktoWatch(task: DataManager.sharedInstance.cachedTasks[0])
-        }else{
-            var taskTest = Task(taskId: "test", taskName: "CHEEEVRE", imgURL: "work")
-            WatchManager.sharedInstance.sendTasktoWatch(task: taskTest)
-        }
+//        if(DataManager.sharedInstance.cachedTasks.count > 1){
+//            WatchManager.sharedInstance.sendTasktoWatch(task: DataManager.sharedInstance.cachedTasks[0])
+//        }else{
+//            var taskTest = Task(taskId: "test", taskName: "CHEEEVRE", imgURL: "work")
+//            WatchManager.sharedInstance.sendTasktoWatch(task: taskTest)
+//        }
         
     }
     
@@ -68,5 +67,19 @@ class ViewController: UIViewController {
         }*/
     }
 }
+
+extension ViewController: WatchManagerDelegate, DataManagerDelegate{
+    func logs(message: String){
+        logTextView.text = logTextView.text! + " \n " + message
+    }
+    func logsCachedTasks(tasks: Array<Task>){
+        logTextView.text = "Mis à jour FireBase" + " \n "
+        for task in tasks {
+            logTextView.text = logTextView.text! + task.getString() + " \n "
+        }
+    }
+}
+
+
 
     

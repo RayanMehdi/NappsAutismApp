@@ -23,6 +23,7 @@ class InterfaceController: WKInterfaceController {
         currentTaskId = data["id"]!
         imgTask.setHidden(false)
         isHidden = false
+        currentTaskId = "id : " + data["id"]! + " / " + "name: " + data["name"]!
 //        self.watchSession?.sendMessage(["ReturnTask": "OK"], replyHandler: nil)
     }
     
@@ -37,7 +38,7 @@ class InterfaceController: WKInterfaceController {
         taskTitle.setText("No notif")
         imgTask.setHidden(true)
         if(!isHidden){
-            self.watchSession?.sendMessage(["ReturnTask": "OK"], replyHandler: nil)
+            self.watchSession?.sendMessage(["ReturnTask": currentTaskId + " = OK"], replyHandler: nil)
             isHidden = true
             self.dismiss()
         }

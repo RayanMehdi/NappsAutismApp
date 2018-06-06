@@ -15,6 +15,7 @@ class WatchManager : NSObject{
     static let sharedInstance = WatchManager()
     var wcSession: WCSession?
     var wcSessionActivationCompletion : ((WCSession)->Void)?
+    var delegate : WatchManagerDelegate?
     
     var watchSession: WCSession? {
         didSet {
@@ -38,9 +39,9 @@ class WatchManager : NSObject{
         self.watchSession?.sendMessage(["showTask": task.getData()], replyHandler: nil)
     }
     
-    func returnFromWatch(){
+    func returnFromWatch(text: String){
         DataManager.sharedInstance.searchCloserTask()
-        //self.TestLabel.text?.append("\nRECU PAR LA MONTRE")
+        delegate?.logs(message: text)
     }
 }
 
@@ -67,7 +68,7 @@ extension WatchManager: WCSessionDelegate {
     func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
         if (message["ReturnTask"] as? String) != nil {
             DispatchQueue.main.async {
-                self.returnFromWatch();
+                self.returnFromWatch(text: (message["ReturnTask"] as? String)!);
             }
         }
     }
@@ -78,3 +79,8 @@ extension WatchManager: WCSessionDelegate {
     func sessionDidDeactivate(_ session: WCSession) {
     }
 }
+
+protocol WatchManagerDelegate : class {
+    func logs(message: String)
+}
+
