@@ -9,29 +9,15 @@
 import UIKit
 import Firebase
 import FirebaseFirestore
-import WatchConnectivity
+
 
 class ViewController: UIViewController {
     @IBOutlet weak var TestLabel: UILabel!
-    var wcSession: WCSession?
-    var wcSessionActivationCompletion : ((WCSession)->Void)?
     
-    var watchSession: WCSession? {
-        didSet {
-            if let session = watchSession {
-                session.delegate = self
-                session.activate()
-            }
-        }
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if(WCSession.isSupported()){
-            watchSession = WCSession.default
-            watchSession!.delegate = self
-            watchSession!.activate()
-        }   
+        WatchManager.sharedInstance
         
         addListener(collection: "Planning", document: "S9qp9mdbY2bCSylmpa7Q") //ajout du listener
         // Do any additional setup after loading the view, typically from a nib.
@@ -49,21 +35,15 @@ class ViewController: UIViewController {
        // self.TestLabel.text=autistId
         //POUR ENVOYER UN MESSAGE A LA MONTRE:
         if(DataManager.sharedInstance.cachedTasks.count > 1){
-            sendTasktoWatch(task: DataManager.sharedInstance.cachedTasks[0])
+            WatchManager.sharedInstance.sendTasktoWatch(task: DataManager.sharedInstance.cachedTasks[0])
         }else{
             var taskTest = Task(taskId: "test", taskName: "CHEEEVRE", imgURL: "work")
-            sendTasktoWatch(task: taskTest)
+            WatchManager.sharedInstance.sendTasktoWatch(task: taskTest)
         }
         
     }
     
-    func sendTasktoWatch(task: Task){
-        self.watchSession?.sendMessage(["showTask": task.getData()], replyHandler: nil)
-    }
     
-    func returnFromWatch(){
-        self.TestLabel.text?.append("\nRECU PAR LA MONTRE")
-    }
 
     //AJOUT D'UN LISTENER SUR UNE COLLECTION FIREBASE
     func addListener(collection: String, document: String){
@@ -89,38 +69,4 @@ class ViewController: UIViewController {
     }
 }
 
-    extension ViewController: WCSessionDelegate {
-        
-        //MARK: - WCSessionDelegate
-        
-        func send(key: String, value: Any) {
-            if let session = wcSession, session.isReachable {
-                session.sendMessage([key : value], replyHandler: nil)
-            }
-        }
-        
-        func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
-            if activationState == .activated {
-                if let activationCompletion = wcSessionActivationCompletion {
-                    activationCompletion(session)
-                    wcSessionActivationCompletion = nil
-                }
-            }
-        }
-        
-        //GESTION DES MESSAGES RECUS PAR LA MONTRE
-        func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
-            if (message["ReturnTask"] as? String) != nil {
-                DispatchQueue.main.async {
-                    self.returnFromWatch();
-                }
-            }
-        }
-        
-        func sessionDidBecomeInactive(_ session: WCSession) {
-        }
-        
-        func sessionDidDeactivate(_ session: WCSession) {
-        }
-}
-
+    
