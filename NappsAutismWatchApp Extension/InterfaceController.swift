@@ -18,6 +18,7 @@ class InterfaceController: WKInterfaceController {
     var currentTaskId: String = ""
     
     func showTask(data: [String: String]){
+        WKInterfaceDevice().play(.notification)
         taskTitle.setText(data["name"])
         imgTask.setImage(UIImage(named: data["image"]!))
         currentTaskId = data["id"]!
