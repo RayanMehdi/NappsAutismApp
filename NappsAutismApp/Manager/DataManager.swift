@@ -17,6 +17,7 @@ class DataManager{
     var nextTask=Task(taskName: "ERREUR")
     static let sharedInstance = DataManager()
     var delegate : DataManagerDelegate?
+    var timer: Timer?
     
     var documentDirectory: URL {
         return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
@@ -117,29 +118,31 @@ class DataManager{
             }
         }
         
-        print("Next task to schedule: "+nextTask.taskName!)
+        var minTask=Double(0)
+        if(nextTask.taskName=="ERREUR"){
+            for i in cachedTasks{
+                var timestampTask=getFormattedDate(timestamp: (i.date?.dateValue())!).timeIntervalSince1970
+                var diff=timestampTask-currentDate
+                if(diff<minTask){
+                    minTask=diff
+                    nextTask=i
+                }
+            }
+        }
         
+        print("Next task to schedule: "+nextTask.taskName!)
+        if let timer = timer {
+            if(timer.isValid){
+                timer.invalidate()
+            }
+        }
         let date = getFormattedDate(timestamp: (nextTask.date?.dateValue())!)
-        let timer = Timer(fireAt: date, interval: 0, target: self, selector: #selector(sendTaskToWatch), userInfo: nil, repeats: false)
-        RunLoop.main.add(timer, forMode: RunLoopMode.commonModes)
+        timer = Timer(fireAt: date, interval: 0, target: self, selector: #selector(sendTaskToWatch), userInfo: nil, repeats: false)
+        RunLoop.main.add(timer!, forMode: RunLoopMode.commonModes)
     }
     
     @objc func sendTaskToWatch(){
         WatchManager.sharedInstance.sendTasktoWatch(task: nextTask)
-    }
-
-    func createTimer(){
-        var closerTask=Task(taskName: "tmp")
-        var minInterval=Double(100000000000)
-        var currentDate=Date().timeIntervalSince1970
-        for i in cachedTasks{
-            var Value=getFormattedDate(timestamp: i.date?.dateValue() as! Date).timeIntervalSince1970
-            if(Value-currentDate<minInterval){
-                closerTask=i
-                minInterval=Value-currentDate
-            }
-        }
-        print(closerTask.taskName)
     }
     
     func getFormattedDate(timestamp:Date)->Date{
