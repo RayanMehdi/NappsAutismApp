@@ -7,7 +7,22 @@
 		<key>NappsAutismApp.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>11</integer>
+			<integer>26</integer>
+		</dict>
+		<key>NappsAutismWatchApp (Complication).xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>29</integer>
+		</dict>
+		<key>NappsAutismWatchApp (Notification).xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>28</integer>
+		</dict>
+		<key>NappsAutismWatchApp.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>27</integer>
 		</dict>
 	</dict>
 </dict>
