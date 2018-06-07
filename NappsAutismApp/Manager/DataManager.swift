@@ -162,6 +162,14 @@ class DataManager{
         return someDateTime!
     }
     
+    func modifTaskInstant(task : Task){
+        db.collection("Task").document(task.taskId!).setData([
+            "imgURL": task.imgURL,
+            "isFirstTime": false,
+            "taskName" : task.taskName ], merge: true)
+        
+    }
+    
 }
 
 protocol DataManagerDelegate : class {

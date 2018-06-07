@@ -32,6 +32,7 @@ class Task{
         self.taskName = taskName
         self.taskId = taskId
     }
+    
     init(data: [String: Any?], id: String) {
         self.date = data["date"] as! Timestamp
         self.frequency = data["frequency"] as! String

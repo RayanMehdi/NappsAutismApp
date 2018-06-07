@@ -18,7 +18,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         WatchManager.sharedInstance.delegate = self
         DataManager.sharedInstance.delegate = self
-        addListener(collection: "Planning", document: "S9qp9mdbY2bCSylmpa7Q") //ajout du listener
+        addListener(collection: "Planning", documentName: "S9qp9mdbY2bCSylmpa7Q")
+        addListener(collection: "Message", documentName: "zPe4zhDnFAUfllUaoIVl")//ajout du listener
     }
 
     override func didReceiveMemoryWarning() {
@@ -26,21 +27,30 @@ class ViewController: UIViewController {
     }
     
     //FONCTION APPELÉE LORS D'UN CHANGEMENT DANS FIREBASE
-    func onPlanningChanged(data: [String : Any]){
-        DataManager.sharedInstance.saveTasks(tasksId: data["tasksId"] as! Array<DocumentReference>)
+    func onPlanningChanged(data: [String : Any], collection: String, document: String){
+        if(collection == "Planning"){
+            DataManager.sharedInstance.saveTasks(tasksId: data["tasksId"] as! Array<DocumentReference>)
+        }else if (collection == "Message"){
+            if(data["isFirstTime"] as! Bool){
+                let taskInstant = Task(taskId: document, taskName: data["taskName"] as! String, imgURL: data["imgURL"] as! String)
+                DataManager.sharedInstance.modifTaskInstant(task: taskInstant)
+                WatchManager.sharedInstance.sendTasktoWatch(task: taskInstant)
+            }
+        }
+        
     }
     
     
 
     //AJOUT D'UN LISTENER SUR UNE COLLECTION FIREBASE
-    func addListener(collection: String, document: String){
-        DataManager.sharedInstance.db.collection(collection).document(document)
+    func addListener(collection: String, documentName: String){
+        DataManager.sharedInstance.db.collection(collection).document(documentName)
             .addSnapshotListener { documentSnapshot, error in
                 guard let document = documentSnapshot else {
                     print("Error fetching document: \(error!)")
                     return
                 }
-                self.onPlanningChanged(data: (document.data() )!)
+                self.onPlanningChanged(data: (document.data() )!, collection: collection, document: documentName)
         }
     }
 }
