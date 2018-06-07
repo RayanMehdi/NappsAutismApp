@@ -164,9 +164,9 @@ class DataManager{
     
     func modifTaskInstant(task : Task){
         db.collection("Message").document(task.taskId!).setData([
-            "imgURL": task.imgURL,
+            "imgURL": task.imgURL!,
             "isFirstTime": false,
-            "taskName" : task.taskName ], merge: true)
+            "taskName" : task.taskName! ], merge: true)
         
     }
     
